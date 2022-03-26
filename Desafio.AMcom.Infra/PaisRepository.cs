@@ -1,7 +1,6 @@
 ﻿using Desafio.AMcom.Domain;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Text.Json;
 using System.Threading;
@@ -11,6 +10,13 @@ namespace Desafio.AMcom.Infra
 {
     public class PaisRepository : IPaisRepository
     {
+        private readonly IFileIOWrapper _fileIOWrapper;
+
+        public PaisRepository(IFileIOWrapper fileIOWrapper)
+        {
+            _fileIOWrapper = fileIOWrapper;
+        }
+
         public Task<IList<Pais>> RetornarPaisesAsync(CancellationToken cancellationToken)
         {
             return BuscarArquivoEDeserializaAsync(cancellationToken);
@@ -25,7 +31,7 @@ namespace Desafio.AMcom.Infra
 
         private async Task<IList<Pais>> BuscarArquivoEDeserializaAsync(CancellationToken cancellationToken)
         {
-            var conteudoArquivo = await File.ReadAllTextAsync($"{AppDomain.CurrentDomain.BaseDirectory}\\paises.json", cancellationToken);
+            var conteudoArquivo = await _fileIOWrapper.ReadAllTextAsync($"{AppDomain.CurrentDomain.BaseDirectory}\\paises.json", cancellationToken);
 
             return JsonSerializer.Deserialize<IList<Pais>>(conteudoArquivo);
         }

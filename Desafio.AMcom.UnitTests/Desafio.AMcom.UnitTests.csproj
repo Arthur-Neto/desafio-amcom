@@ -23,10 +23,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Repositories\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Desafio.AMcom.Application\Desafio.AMcom.Application.csproj" />
     <ProjectReference Include="..\Desafio.AMcom\Desafio.AMcom.csproj" />
   </ItemGroup>

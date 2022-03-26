@@ -30,6 +30,8 @@ namespace Desafio.AMcom
 
             services.AddScoped<IStreamWriterFactory, StreamWriterFactory>();
 
+            services.AddScoped<IFileIOWrapper, FileIOWrapper>();
+
             services.AddMediatR(typeof(AppHandlerBase<>));
 
             services.AddAutoMapper(typeof(AppHandlerBase<>));
