@@ -24,10 +24,11 @@ namespace Desafio.AMcom
 
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.AddControllers();
 
             services.AddScoped<IPaisRepository, PaisRepository>();
+
+            services.AddScoped<IStreamWriterFactory, StreamWriterFactory>();
 
             services.AddMediatR(typeof(AppHandlerBase<>));
 

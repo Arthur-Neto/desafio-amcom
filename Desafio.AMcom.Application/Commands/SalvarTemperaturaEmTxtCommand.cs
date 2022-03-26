@@ -1,6 +1,6 @@
-﻿using MediatR;
+﻿using Desafio.AMcom.Infra;
+using MediatR;
 using Microsoft.Extensions.Logging;
-using System.IO;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -16,13 +16,21 @@ namespace Desafio.AMcom.Application.Commands
 
     public class SalvarTemperaturaEmTxtCommandHandler : AppHandlerBase<SalvarTemperaturaEmTxtCommandHandler>, IRequestHandler<SalvarTemperaturaEmTxtCommand, Unit>
     {
-        public SalvarTemperaturaEmTxtCommandHandler(ILogger<SalvarTemperaturaEmTxtCommandHandler> logger)
-            : base(logger)
-        { }
+        public const string NOME_ARQUIVO = "temperatura.txt";
+
+        private readonly IStreamWriterFactory _streamWriterFactory;
+
+        public SalvarTemperaturaEmTxtCommandHandler(
+            ILogger<SalvarTemperaturaEmTxtCommandHandler> logger,
+            IStreamWriterFactory streamWriterFactory
+        ) : base(logger)
+        {
+            _streamWriterFactory = streamWriterFactory;
+        }
 
         public async Task<Unit> Handle(SalvarTemperaturaEmTxtCommand request, CancellationToken cancellationToken)
         {
-            using (var file = new StreamWriter("temperatura.txt"))
+            using (var file = _streamWriterFactory.GetStreamWriter(NOME_ARQUIVO))
             {
                 var sb = new StringBuilder();
                 sb.AppendLine(request.Kelvin.ToString());

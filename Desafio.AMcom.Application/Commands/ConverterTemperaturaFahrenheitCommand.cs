@@ -33,20 +33,20 @@ namespace Desafio.AMcom.Application.Queries
 
                 try
                 {
-                    _logger.LogInformation($"Recebida temperatura para conversão: {request.Fahrenheit}");
+                    _logger.LogInformation("Recebida temperatura para conversão: {TemperaturaRequisicao}", request.Fahrenheit);
 
                     temperaturas.Fahrenheit = request.Fahrenheit;
                     temperaturas.Celsius = (request.Fahrenheit - 32.0) * 5 / 9;
                     temperaturas.Kelvin = temperaturas.Celsius + 273.15;
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    _logger.LogInformation("Ocorreu um problema ao converter");
+                    _logger.LogError(ex, "Ocorreu um problema ao converter");
                 }
 
-                _logger.LogInformation($"Resultado concluído: {temperaturas.Celsius}");
-                _logger.LogInformation($"Resultado concluído: {temperaturas.Fahrenheit}");
-                _logger.LogInformation($"Resultado concluído: {temperaturas.Kelvin}");
+                _logger.LogInformation("Resultado concluído: {TemperaturaCelsius}", temperaturas.Celsius);
+                _logger.LogInformation("Resultado concluído: {TemperaturaFahrenheit}", temperaturas.Fahrenheit);
+                _logger.LogInformation("Resultado concluído: {TemperaturaKelvin}", temperaturas.Kelvin);
 
                 return Task.FromResult(temperaturas);
             });
