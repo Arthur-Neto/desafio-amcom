@@ -22,7 +22,7 @@ O aplicativo é uma WebAPI desenvolvida em .NET 5 e estamos com problemas para i
 
 #### Quanto tempo esperamos que você gaste para escrever esse teste?
 Até 04 horas, preferimos que você use 4 horas para propor uma implementação aproximada e descrever como continuar. Se você quiser dedicar mais tempo, tudo bem, mas esteja ciente de que seremos mais rígidos ao avaliar sua tarefa. Tente equilibrar os dois mundos.
-####Sou obrigado a usar a estrutura de código fornecida?
+#### Sou obrigado a usar a estrutura de código fornecida?
 Não, configuramos dessa forma porque alguns candidatos preferem, mas não é um requisito.
-####Preciso realizar todas as tarefas?
+#### Preciso realizar todas as tarefas?
 Não é obrigatório, faça até onde conseguir e tente mostrar o seu conhecimento no código, e justifique o porquê utilizou componentes e ferramentas.
