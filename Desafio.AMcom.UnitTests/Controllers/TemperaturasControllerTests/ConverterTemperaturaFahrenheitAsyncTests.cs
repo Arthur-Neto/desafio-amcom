@@ -1,5 +1,5 @@
-﻿using Desafio.AMcom.Application.Models;
-using Desafio.AMcom.Application.Queries;
+﻿using Desafio.AMcom.Application.Commands;
+using Desafio.AMcom.Application.Models;
 using Desafio.AMcom.Controllers;
 using FluentAssertions;
 using MediatR;
