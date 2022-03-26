@@ -31,7 +31,7 @@ namespace Desafio.AMcom.Infra
 
         private async Task<IList<Pais>> BuscarArquivoEDeserializaAsync(CancellationToken cancellationToken)
         {
-            var conteudoArquivo = await _fileIOWrapper.ReadAllTextAsync($"{AppDomain.CurrentDomain.BaseDirectory}\\paises.json", cancellationToken);
+            var conteudoArquivo = await _fileIOWrapper.ReadAllTextAsync($"{AppDomain.CurrentDomain.BaseDirectory}//paises.json", cancellationToken);
 
             return JsonSerializer.Deserialize<IList<Pais>>(conteudoArquivo);
         }
