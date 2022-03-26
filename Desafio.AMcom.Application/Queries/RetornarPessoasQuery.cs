@@ -21,7 +21,6 @@ namespace Desafio.AMcom.Application.Queries
     {
         private readonly IHttpClientFactory _httpClientFactory;
         private readonly IMapper _mapper;
-        private readonly HttpRequestMessage _httpMessage;
 
         public RetornarPessoasQueryHandler(
             ILogger<RetornarPessoasQueryHandler> logger,
@@ -31,11 +30,6 @@ namespace Desafio.AMcom.Application.Queries
         {
             _mapper = mapper;
             _httpClientFactory = httpClientFactory;
-
-            _httpMessage = new HttpRequestMessage(
-            HttpMethod.Get,
-            "https://reqres.in/api/users?page=2"
-            );
         }
 
         public async Task<IList<PessoaModel>> Handle(RetornarPessoasQuery request, CancellationToken cancellationToken)

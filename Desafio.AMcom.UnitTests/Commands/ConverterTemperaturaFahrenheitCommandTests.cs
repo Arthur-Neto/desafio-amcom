@@ -1,5 +1,5 @@
-﻿using Desafio.AMcom.Application.Models;
-using Desafio.AMcom.Application.Queries;
+﻿using Desafio.AMcom.Application.Commands;
+using Desafio.AMcom.Application.Models;
 using FluentAssertions;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Logging;

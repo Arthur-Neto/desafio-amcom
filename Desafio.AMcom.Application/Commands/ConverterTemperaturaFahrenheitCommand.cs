@@ -6,7 +6,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Desafio.AMcom.Application.Queries
+namespace Desafio.AMcom.Application.Commands
 {
     public class ConverterTemperaturaFahrenheitCommand : IRequest<TemperaturasModel>
     {

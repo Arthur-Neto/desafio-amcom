@@ -1,6 +1,5 @@
 ﻿using Desafio.AMcom.Application.Commands;
 using Desafio.AMcom.Application.Models;
-using Desafio.AMcom.Application.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
